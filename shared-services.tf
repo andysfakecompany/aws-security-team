@@ -1,7 +1,7 @@
 resource "aws_security_group" "shared-services" {
   name        = "shared_services"
   description = "Allow inbound traffic for shared items"
-  vpc_id = "${data.terraform_remote_state.fakecompany_vpc_id.value}"
+  vpc_id = "${data.terraform_remote_state.networking_stuff.fakecompany_vpc_id}"
 
   ingress {
     # TLS (change to whatever ports you need)
