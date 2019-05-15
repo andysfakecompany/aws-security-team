@@ -3,8 +3,13 @@ provider "aws" {
 }
 
 data "terraform_remote_state" "fakecompany_vpc_id" {
-  backend = "tfe"
-  config {
-    name = "andys-fake-company/AWS-Network-Team"
+  backend = "remote"
+
+  config = {
+    organization = "andys-fake-company"
+
+    workspaces {
+      name = "Network-Team"
+    }
   }
 }
